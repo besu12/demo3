@@ -1,0 +1,15 @@
+http:
+  port: "8082"
+db: 
+  host: "mudb.learn.mulesoft.com"
+  port: "3306"
+  user: "mule"
+  password: "mule"
+  database: "training"
+HTTP_Request:
+  host: "mu.learn.mulesoft.com"
+  port: "80"
+sfdc:
+ username: "besufikad@thiotec.com"
+ password: "Liyat&besu19"
+ token: "mNWBFZlrsbA0Gx5HDPopQqgE"

@@ -1,0 +1,10 @@
+#%RAML 1.0
+title: interface
+/flights:
+  get:
+    queryParameters:
+      airline:
+        enum:
+          - united
+          - american
+          - delta

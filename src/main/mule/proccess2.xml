@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="proccess2Flow" doc:id="bb7ff9f6-631e-4701-89f7-1d3f4a420b8b" >
+		<set-variable value="#[message.attributes.queryParams.airline]" doc:name="Set Variable" doc:id="ad437cad-08cd-46ae-a66e-8fa3b749f505" variableName="airline"/>
+		<choice doc:name="Choice" doc:id="79ef7ef9-dc43-44c9-94a5-968a70e2c1a1" >
+			<when expression="#[vars.airline == 'united']">
+				<flow-ref doc:name="Flow Reference" doc:id="5b8e6375-e8b1-4cce-a2b2-4474373a14e3" name="unitedsysFlow"/>
+			</when>
+			<when expression="#[vars.airline == 'american']">
+				<flow-ref doc:name="Flow Reference" doc:id="27f2b304-5523-43d0-be0a-9d702515fa57" name="americansysFlow"/>
+			</when>
+			<otherwise >
+				<flow-ref doc:name="Flow Reference" doc:id="a280091c-0589-498f-a15a-2a572287c31a" name="salesforcesysFlow"/>
+			</otherwise>
+		</choice>
+		<ee:transform doc:name="Transform Message" doc:id="6ec2b8c5-1705-446e-8f32-123cb10be8bf" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

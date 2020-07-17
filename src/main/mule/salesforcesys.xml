@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd">
+	<flow name="salesforcesysFlow" doc:id="f9e8c8bb-7da9-40c5-a450-d54f9aa8487f" >
+		<salesforce:query doc:name="Query" doc:id="bdd5fd34-49eb-46cf-8781-125da67b425a" config-ref="Salesforce_Config">
+			<salesforce:salesforce-query >select Name,AcoountID from Accounts</salesforce:salesforce-query>
+		</salesforce:query>
+	</flow>
+</mule>
